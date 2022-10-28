@@ -2,6 +2,7 @@
   font-size: 2.5rem;
   color: white;
   background-color: rgb(255, 149, 0);
+  justify-content: center;
 }
 .button:focus,
 .button:hover {
