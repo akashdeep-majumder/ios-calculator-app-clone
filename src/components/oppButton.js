@@ -1,13 +1,10 @@
-import { ACTIONS } from './App';
+import { ACTIONS } from '../App';
+import styles from './opp.module.css';
 
 export default function OppButton({ dispatch, operation }) {
-  const oppColor = {
-    color: 'white',
-    backgroundColor: 'rgb(255, 149, 0)',
-  };
   return (
     <button
-      style={oppColor}
+      className={styles.button}
       onClick={() => dispatch({ type: ACTIONS.CHOOSE, payload: { operation } })}
     >
       {operation}

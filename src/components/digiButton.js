@@ -1,13 +1,10 @@
-import { ACTIONS } from './App';
+import { ACTIONS } from '../App';
+import styles from './digi.module.css';
 
 export default function DigiButton({ dispatch, digit }) {
-  const digiColor = {
-    color: 'white',
-    backgroundColor: 'rgb(80, 80, 80)',
-  };
   return (
     <button
-      style={digiColor}
+      className={styles.button}
       onClick={() => dispatch({ type: ACTIONS.ADD, payload: { digit } })}
     >
       {digit}

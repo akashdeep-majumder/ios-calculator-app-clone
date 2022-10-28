@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useReducer } from 'react';
-import DigiButton from './digiButton';
-import OppButton from './oppButton';
+import DigiButton from './components/digiButton';
+import OppButton from './components/oppButton';
 
 export const ACTIONS = {
   ADD: 'adddigit',
@@ -120,11 +120,6 @@ function evaluate({ operandOne, operandTwo, operation }) {
 }
 
 function App() {
-  const backCSS = {
-    color: 'black',
-    backgroundColor: 'rgb(212, 212, 210)',
-    fontSize: '1.75rem',
-  };
   const [{ operandOne, operandTwo, operation }, dispatch] = useReducer(
     reducer,
     { operandTwo: '' }
@@ -140,12 +135,11 @@ function App() {
       </div>
       <button
         className="AC-two"
-        style={backCSS}
         onClick={() => dispatch({ type: ACTIONS.CLEAR })}
       >
         AC
       </button>
-      <button style={backCSS} onClick={() => dispatch({ type: ACTIONS.DEL })}>
+      <button className="DEL" onClick={() => dispatch({ type: ACTIONS.DEL })}>
         DEL
       </button>
       <OppButton operation="÷" dispatch={dispatch} />
@@ -167,7 +161,6 @@ function App() {
       <DigiButton digit="." dispatch={dispatch} />
       <button
         className="eq-two"
-        style={{ color: 'white', backgroundColor: 'rgb(255, 149, 0)' }}
         onClick={() => dispatch({ type: ACTIONS.EVALUATE })}
       >
         =

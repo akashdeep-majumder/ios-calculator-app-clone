@@ -1,0 +1,9 @@
+.button {
+  font-size: 2rem;
+  color: white;
+  background-color: rgb(80, 80, 80);
+}
+.button:focus,
+.button:hover {
+  background-color: rgba(147, 146, 146, 0.9);
+}
