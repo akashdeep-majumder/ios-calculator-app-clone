@@ -20,7 +20,6 @@ const reducer = (state, { type, payload }) => {
         };
       }
       if (payload.digit === '0' && state.operandTwo === '0') return state;
-      if (payload.digit === '.' && state.operandTwo === '.') return state;
       if (payload.digit === '.' && state.operandTwo.includes('.') === true)
         return state;
 
@@ -31,16 +30,16 @@ const reducer = (state, { type, payload }) => {
     case ACTIONS.CLEAR:
       return { operandTwo: '' };
     case ACTIONS.CHOOSE:
-      if (state.operandOne == null && state.operandTwo == null) return state;
+      if (state.operandOne == null && state.operandTwo == '') return state;
       if (state.operandOne == null) {
         return {
           ...state,
           operation: payload.operation,
           operandOne: state.operandTwo,
-          operandTwo: null,
+          operandTwo: '',
         };
       }
-      if (state.operandTwo === null) {
+      if (state.operandTwo === '') {
         return {
           ...state,
 
@@ -51,12 +50,12 @@ const reducer = (state, { type, payload }) => {
         ...state,
         operandOne: evaluate(state),
         operation: payload.operation,
-        operandTwo: null,
+        operandTwo: '',
       };
     case ACTIONS.EVALUATE:
       if (
         state.operandOne === null ||
-        state.operandTwo === null ||
+        state.operandTwo === '' ||
         state.operation === null
       ) {
         return state;
@@ -65,7 +64,7 @@ const reducer = (state, { type, payload }) => {
       return {
         ...state,
         overwrite: true,
-        operandTwo: null,
+        operandTwo: '',
         operandOne: evaluate(state),
         operation: null,
       };
@@ -73,17 +72,17 @@ const reducer = (state, { type, payload }) => {
       if (state.overwrite) {
         return {
           ...state,
-          operandTwo: null,
+          operandTwo: '',
           overwrite: false,
         };
       }
-      if (state.operandTwo === null) {
+      if (state.operandTwo === '') {
         return state;
       }
       if (state.operandTwo.length === 1) {
         return {
           ...state,
-          operandTwo: null,
+          operandTwo: '',
         };
       }
       return {
@@ -122,7 +121,7 @@ function evaluate({ operandOne, operandTwo, operation }) {
 function App() {
   const [{ operandOne, operandTwo, operation }, dispatch] = useReducer(
     reducer,
-    { operandTwo: '' }
+    { operandTwo: '', operandOne: null, operation: null }
   );
   return (
     <div className="App">

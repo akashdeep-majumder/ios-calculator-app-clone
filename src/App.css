@@ -74,10 +74,10 @@ body {
 
 .output .operand-one {
   color: rgba(255, 255, 255, 0.75);
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .output .operand-two {
   color: rgba(255, 255, 255, 0.75);
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
