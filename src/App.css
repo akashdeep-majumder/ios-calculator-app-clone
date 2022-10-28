@@ -1,38 +1,65 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: black;
+}
+
 .App {
-  text-align: center;
+  display: grid;
+  margin-top: 2rem;
+  justify-content: center;
+  grid-template-columns: repeat(4, 6rem);
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+  padding-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App > button {
+  cursor: pointer;
+  font-size: 2rem;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  margin: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App > button :hover,
+.App > button :focus {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.AC-two {
+  grid-column: 1/3;
+  grid-row: 2;
+}
+
+.eq-two {
+  grid-column: 3/5;
+  grid-row: 6;
+}
+
+.output {
+  grid-column: 1 / -1;
+  background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0.75rem;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-.App-link {
-  color: #61dafb;
+.output .operand-one {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.output .operand-two {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 2.5rem;
 }
