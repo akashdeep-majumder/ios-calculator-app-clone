@@ -147,7 +147,7 @@ function App() {
 
       <DigiButton digit="2" dispatch={dispatch} />
       <DigiButton digit="3" dispatch={dispatch} />
-      <OppButton operation="* " dispatch={dispatch} />
+      <OppButton operation="*" dispatch={dispatch} />
       <DigiButton digit="4" dispatch={dispatch} />
       <DigiButton digit="5" dispatch={dispatch} />
       <DigiButton digit="6" dispatch={dispatch} />
